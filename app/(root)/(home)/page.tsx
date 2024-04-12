@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Homem = () => {
+const Home = () => {
   return (
     <section className='flex size-full flex-col gap-10 text-white'>
       <h1 className="text-3xl font-bold">
@@ -10,4 +10,4 @@ const Homem = () => {
   )
 }
 
-export default Homem
+export default Home

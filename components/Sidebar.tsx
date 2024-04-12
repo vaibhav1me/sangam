@@ -17,8 +17,7 @@ const Sidebar = () => {
         <div className="flex flex-1 flex-col gap-6">
             {
                 sidebarLinks.map((link) => {
-                    const isActive = pathname === link.route || (pathname.startsWith(link.route) && link.route!="/" )
-
+                    const isActive = pathname === link.route
                     return (
                         <Link href={link.route} key={link.label} className={cn('flex gap-4 items-center p-4 rounded-lg justify-start',{'bg-blue-1' : isActive} )}>
                                 <Image src={link.imgUrl} alt={link.label} width={24} height={24}/>
