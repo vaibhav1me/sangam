@@ -20,7 +20,8 @@ export default function RootLayout({
       <ClerkProvider 
       appearance={{
         layout: {
-          logoImageUrl: '/icons/sangama-logo.svg'
+          logoImageUrl: '/icons/sangama-logo.svg',
+          // socialButtonsVariant: 'iconButton'
         },
         variables: {
           colorText: '#fff',

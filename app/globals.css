@@ -165,7 +165,9 @@
   background: #252a41;
   height: 2px;
 }
-
+.cl-socialButtonsBlockButtonText{
+  color: white;
+}
 .cl-socialButtonsIconButton {
   border: 3px solid #565761;
 }
