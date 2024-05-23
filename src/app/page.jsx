@@ -1,15 +1,28 @@
 "use client"
 import Image from "next/image";
 import { useEffect } from "react";
-import { useSocket } from "./context/SocketContextProvider";
+// import { useSocket } from "./context/SocketContextProvider";
 import React from "react";
+import { socket } from "../socket";
 
 export default function Home() {
-  const socket = useSocket();
+  // const socket = useSocket();
   useEffect(()=>{
-    socket.on("connect", () => {
-      console.log(socket.id)
-    })
+    if (socket.connected) {
+      console.log('connected to socket' + socket.id)
+    }
+
+    // socket.on("connect", () => {
+    //   console.log(socket.id)
+    // })
+
+
+    // return () => {
+    //   socket.off("connect", () => {
+    //     console.log("Cleanup function")
+    //   })
+    // }
+
   }, [])
 
   return (

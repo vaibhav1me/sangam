@@ -26,6 +26,7 @@ app.prepare().then(() => {
      io.on("connection", (socket) => {
        // ...
        console.log("A user connected to socket " + socket.id);
+      //  socket.broadcast.emit("checking", {data: "Hello"})
        // console.log(socket.id)
     //    socket.on("connect", () => {
     //      console.log("Connect to socket", socket.id);
