@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useEffect } from "react";
 import { useSocket } from "./context/SocketContextProvider";
+import React from "react";
 
 export default function Home() {
   const socket = useSocket();
