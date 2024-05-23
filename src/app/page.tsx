@@ -1,6 +1,18 @@
+"use client"
 import Image from "next/image";
+import { useEffect } from "react";
+import {io} from 'socket.io-client'
+import { useSocket } from "./context/SocketContextProvider";
 
 export default function Home() {
+  // const socket = io("http://localhost:3000")
+  const socket = useSocket();
+  useEffect(()=>{
+    socket.on("connect", () => {
+      console.log(socket.id)
+    })
+  }, [])
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
