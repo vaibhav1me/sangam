@@ -1,5 +1,5 @@
 "use client"
-import { PropsWithChildren, createContext, useContext } from "react";
+import { createContext, useContext } from "react";
 import { io } from "socket.io-client";
 
 export const SocketContext = createContext()

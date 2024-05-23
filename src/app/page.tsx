@@ -1,11 +1,9 @@
 "use client"
 import Image from "next/image";
 import { useEffect } from "react";
-import {io} from 'socket.io-client'
 import { useSocket } from "./context/SocketContextProvider";
 
 export default function Home() {
-  // const socket = io("http://localhost:3000")
   const socket = useSocket();
   useEffect(()=>{
     socket.on("connect", () => {
