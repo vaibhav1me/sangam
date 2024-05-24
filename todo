@@ -1,1 +1,2 @@
 Remove ContextAPI from everywhere for socketIO function
+1. Regenrate verification Email if user forgets to verify and the token gets expired

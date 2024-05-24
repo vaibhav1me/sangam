@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import { connectDB } from "@/dbConfig/dbConnect";
 import User from "@/models/User";
 import bcrypt from "bcryptjs";
+import { sendEmail } from "@/helpers/sendEmail";
+import jwt from "jsonwebtoken";
 
 connectDB();
 
@@ -34,9 +36,24 @@ export const POST = async (request) => {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
     user = await User.create({ email, userName, password: hashedPassword });
-    return NextResponse.json({ message: "User Created Successfully", user });
+    await sendEmail(email, "VERIFY");
+    console.log(user._id);
+    const token = await jwt.sign(
+      { id: user._id, userName, email },
+      process.env.JWT_SECRET,
+      {
+        expiresIn: "30d",
+      }
+    );
+    const response = NextResponse.json({
+      message: "User Created Successfully",
+      user,
+    });
+    response.cookies.set("token", token, { httpOnly: true });
+    return response;
   } catch (error) {
-    console.log(error.message.stack);
-    return NextResponse.json({ message: error.message });
+    console.log("Error while signing up");
+    console.log(error);
+    return NextResponse.json({ message: "Error while signing up" });
   }
 };
