@@ -26,6 +26,12 @@ app.prepare().then(() => {
      io.on("connection", (socket) => {
        // ...
        console.log("A user connected to socket " + socket.id);
+       socket.on("disconnect", () => {
+         console.log("User disconnected from socket " + socket.id);
+       });
+       socket.on("checking", (data) => {
+         console.log("Printing data" + data);
+       });
       //  socket.broadcast.emit("checking", {data: "Hello"})
        // console.log(socket.id)
     //    socket.on("connect", () => {

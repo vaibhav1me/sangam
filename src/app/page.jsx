@@ -10,19 +10,8 @@ export default function Home() {
   useEffect(()=>{
     if (socket.connected) {
       console.log('connected to socket' + socket.id)
-    }
-
-    // socket.on("connect", () => {
-    //   console.log(socket.id)
-    // })
-
-
-    // return () => {
-    //   socket.off("connect", () => {
-    //     console.log("Cleanup function")
-    //   })
-    // }
-
+      }
+    socket.emit("checking", { data: "Hello" });
   }, [])
 
   return (
