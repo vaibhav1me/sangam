@@ -1,6 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-// import { SocketProvider } from "./context/SocketContextProvider";
+import { UserProvider } from "./context/UserContextProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,9 +15,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        {/* <SocketProvider> */}
+        <UserProvider>
           {children}
-        {/* </SocketProvider> */}
+        </UserProvider>
         </body>
     </html>
   );

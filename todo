@@ -1,1 +1,6 @@
 Remove ContextAPI from everywhere for socketIO function
+SetUp google auth, github auth
+add remember me option
+Add httpcodes in backend
+specify while signing up that if the username exists or email exists
+handle uppercase and lowercase in email and userName

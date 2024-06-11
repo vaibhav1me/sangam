@@ -12,11 +12,11 @@ export const POST = async (request) => {
     const { email, password } = reqBody;
     const user = await User.findOne({ email });
     if (!user) {
-      return NextResponse.json({ message: "Invalid Email" });
+      return NextResponse.json({success: false, message: "This email does not exist. Please create an account." });
     }
     const validPassword = await bcrypt.compare(password, user.password);
     if (!validPassword) {
-      return NextResponse.json({ error: "Incorrect Password" });
+      return NextResponse.json({success: false, message: "Incorrect Password" });
     }
     const token = jwt.sign(
       { id: user._id, userName: user.userName, email: user.email },
@@ -24,6 +24,7 @@ export const POST = async (request) => {
       { expiresIn: "30d" }
     );
     const response = NextResponse.json({
+      success: true,
       message: "Logged In Successfully",
       user,
     });
