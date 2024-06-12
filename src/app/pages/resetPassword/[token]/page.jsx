@@ -15,6 +15,7 @@ const ResetPassword = () => {
         setMessage('Passwords do not match')
         return;
       }
+      setMessage('Resetting password...')
       const response = await axios.patch("/api/users/resetPassword", {password: details.password, token: params.token})
       if (response.data.success === false && response.data.message === "Invalid token") {
         setMessage('This link has expired.')

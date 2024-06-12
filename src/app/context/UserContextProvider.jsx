@@ -13,7 +13,7 @@ export const UserProvider = (props) => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    if (user == null) {
+    if (user == null || user?.length == 0) {
       const verifyUser = async () => {
         const response = await axios.get("/api/users/verifyUser");
         // console.log(response.data);
