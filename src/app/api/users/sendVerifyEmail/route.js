@@ -15,11 +15,12 @@ export const POST = async (request) => {
     const user = await User.findOne({ email });
     if (!user) {
       return NextResponse.json({
-        message: "This accound does not exist. Please enter correct email",
+        success: false,
+        message: "This account does not exist. Please enter correct email",
       });
     }
     await sendEmail(email, "VERIFY");
-    return NextResponse.json({
+    return NextResponse.json({success: true,
       message: "Verification email sent successfully",
     });
   } catch (error) {

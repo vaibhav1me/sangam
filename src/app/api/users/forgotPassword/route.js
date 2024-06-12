@@ -15,10 +15,15 @@ export const POST = async (request) => {
       });
     }
     await sendEmail(email, "RESET");
-    return NextResponse.json({ message: "Token generated successfully" });
+    return NextResponse.json({ message: "Mail sent successfully." });
   } catch (error) {
     console.log(error);
     console.log("Error while generating forgotPasswordEmail");
+    if (error.message == "No receipients defined") {
+      return NextResponse.json({
+        message: "Please enter a valid email",
+      });
+    }
     return NextResponse.json({
       message: "Error while generating forgotPasswordEmail",
     });

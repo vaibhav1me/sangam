@@ -16,8 +16,7 @@ export const POST = async (request) => {
 
     if (!user) {
       return NextResponse.json(
-        { error: "Invalid token", message: "Please try again" },
-        { status: 400 }
+        {success: false , message: "Invalid token" },
       );
     }
     console.log(user);
@@ -33,7 +32,7 @@ export const POST = async (request) => {
     });
   } catch (error) {
     return NextResponse.json(
-      { error: error.message, message: "Error while verifying email" },
+      {success: false, message: "Error while verifying email" },
       {
         status: 500,
       }

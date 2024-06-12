@@ -8,18 +8,18 @@ import { useRouter } from "next/navigation";
 
 export default function Home() {
   // const socket = useSocket();
-  const user = useUser()
+  const {user} = useUser()
   const router = useRouter()
 
-  // useEffect(()=>{
-  //   if (user == null) {
-  //     router.push("/pages/login")
-  //   }
+  useEffect(()=>{
+    if (user == null) {
+      router.push("/pages/login")
+    }
     // if (socket.connected) {
     //   console.log('connected to socket' + socket.id)
     //   }
     // socket.emit("checking", { data: "Hello" });
-  // }, [user])
+  }, [user])
 
   return (
     <NavMenu/>

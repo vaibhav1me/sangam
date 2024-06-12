@@ -14,9 +14,19 @@ export const POST = async (request) => {
     let user =
       (await User.findOne({ email })) || (await User.findOne({ userName }));
     if (user) {
+      if (user.userName == userName) {
+        return NextResponse.json({
+          success: false,
+          message: "This username already exists.",
+        });
+        
+      } else {
+
+      
       return NextResponse.json({
-        message: "This email already exists. Please sign in",
-      });
+        success: false,
+        message: "This email already exists. Please sign in.",
+      });}
     }
 
     // Checking password Strength
@@ -29,8 +39,9 @@ export const POST = async (request) => {
       !/[^A-Za-z0-9]/.test(password)
     ) {
       return NextResponse.json({
+        success: false,
         message:
-          "Password must have at least 6 characters, one Uppercase, one Lowercase, one Digit and one special Character",
+          "Password must have at least 6 characters, one Uppercase, one Lowercase, one Digit and one special Character.",
       });
     }
     const salt = await bcrypt.genSalt(10);
@@ -46,6 +57,7 @@ export const POST = async (request) => {
       }
     );
     const response = NextResponse.json({
+      success: true,
       message: "User Created Successfully",
       user,
     });
@@ -53,7 +65,14 @@ export const POST = async (request) => {
     return response;
   } catch (error) {
     console.log("Error while signing up");
-    console.log(error);
-    return NextResponse.json({ message: "Error while signing up" });
+    // console.log(error.message);
+    if (error.message == "No recipients defined") {
+      return NextResponse.json({
+        success: false,
+        message: "Please enter a valid email address",
+      });
+      
+    }
+    return NextResponse.json({success: false, message: "Error while signing up" });
   }
 };

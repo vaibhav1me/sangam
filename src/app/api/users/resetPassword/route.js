@@ -14,7 +14,22 @@ export const PATCH = async (request) => {
       forgotPasswordTokenExpiry: { $gt: Date.now() },
     });
     if (!user) {
-      return NextResponse.json({ message: "Invalid token" });
+      return NextResponse.json({success: false, message: "Invalid token" });
+    }
+    // Checking password Strength
+    if (
+      password.length <= 5 ||
+      !/[A-Z]/.test(password) ||
+      !/[a-z]/.test(password) ||
+      !/[0-9]/.test(password) ||
+      !/[A-Z]/.test(password) ||
+      !/[^A-Za-z0-9]/.test(password)
+    ) {
+      return NextResponse.json({
+        success: false,
+        message:
+          "Password must have at least 6 characters, one Uppercase, one Lowercase, one Digit and one special Character.",
+      });
     }
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);

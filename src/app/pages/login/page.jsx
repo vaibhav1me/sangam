@@ -1,22 +1,20 @@
 "use client";
-import { UserContext, UserProvider, useUser } from "@/app/context/UserContextProvider";
+import {useUser } from "@/app/context/UserContextProvider";
 import axios from "axios";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const LoginPage = () => {
-  const user = useUser();
+  const {user, setUser} = useUser();
   const router = useRouter();
-//   const {setU} = useContext(UserProvider)
 
-//   useEffect(() => {
-    // console.log(user);
-    // if (user) {
-    // console.log(user)
-    //   router.push("/");
-    // }
-//   }, [user]);
+  useEffect(() => {
+    if (user?.email) {
+      router.push("/");
+    }
+    console.log(user);
+  }, [user]);
 
   const [details, setDetails] = useState({ email: "", password: "" });
   const [message, setMessage] = useState("");
@@ -25,7 +23,7 @@ const LoginPage = () => {
     const response = await axios.post("/api/users/login", details);
     if (response.data.success) {
       setMessage(response.data.message);
-      
+      setUser(response.data.user);
       router.push("/");
     } else {
       setMessage(response.data.message);
@@ -35,14 +33,16 @@ const LoginPage = () => {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="max-w-[25rem] w-full px-6 py-8 bg-white rounded-md mx-2">
-        <h2 className="text-2xl font-semibold text-center">Login</h2>
-        <div className="mt-8">
+        <h2 className="text-3xl font-semibold text-center text-indigo-600">Sangama</h2>
+        <h2 className="italic text-sm font-semibold text-center text-green-600">A place where hearts connect</h2>
+        <h2 className="mt-4 text-md font-semibold text-center text-indigo-600">Login</h2>
+        <div className="mt-4">
           <div>
             <label
               htmlFor="email"
               className="block text-sm font-medium text-gray-700"
             >
-              Email or Username
+              Email
             </label>
             <input
               type="text"
