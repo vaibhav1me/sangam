@@ -19,6 +19,6 @@ export const GET = async (request) => {
         user,
       });
     } catch (error) {
-        return NextResponse.json({ success: false, message: "User Verification Error" });
+        return NextResponse.json({error: error, success: false, message: "User Verification Error" });
     }
 }
