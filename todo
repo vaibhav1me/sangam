@@ -8,3 +8,5 @@ redirect to verifyEmail on signing up
 make dark mode
 As of now a user can visit a random token in address, and can reset password for some other user whom he may or may not know, fix it such that user can set password only for his email.... Similar problem for verifyEmail also
 Allow only verified users to chat, post etc.
+
+Change name on vercel, github and local and everywhere in the source code

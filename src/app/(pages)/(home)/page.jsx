@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import React from "react";
 // import { socket } from "../socket";
-import { useUser } from "./context/UserContextProvider";
+import { useUser } from "../../context/UserContextProvider";
 import { useRouter } from "next/navigation";
 
 export default function Home() {
