@@ -13,7 +13,7 @@ const LoginPage = () => {
     if (user?.email) {
       router.push("/");
     }
-    console.log(user);
+    // console.log(user);
   }, [user]);
 
   const [details, setDetails] = useState({ email: "", password: "" });

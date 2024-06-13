@@ -1,9 +1,8 @@
 "use client";
 
 import axios from "axios";
-import Link from "next/link";
-import { useParams, useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import { useParams } from "next/navigation";
+import React, { useState } from "react";
 
 const ResetPassword = () => {
   const params = useParams();

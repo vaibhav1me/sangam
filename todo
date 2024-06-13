@@ -10,3 +10,38 @@ As of now a user can visit a random token in address, and can reset password for
 Allow only verified users to chat, post etc.
 
 Change name on vercel, github and local and everywhere in the source code
+Custom error page,redirect to home page
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Objective:
+It can be any website or an application using any kind of tech stack.
+The primary objective of our social media platform is to create a vibrant online community where users can connect, share content, and engage with others. Our platform aims to provide a seamless user experience, promote meaningful interactions, and cater to specific niches or interests.
+
+Key Features:
+1 User Authentication and Profiles:
+Implement secure user registration and login.
+Allow users to create and customize their profiles.
+
+2 Messaging and Chat:
+Implement private messaging between users.
+
+3 News Feed and Content Sharing:
+Design a news feed where users can post text, images, videos, and links.
+Enable content sharing, liking, and commenting.
+
+These are the basic features which your app should have. Other than these you are free to add more in your project.

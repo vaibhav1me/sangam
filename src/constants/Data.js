@@ -1,8 +1,8 @@
 import home from "@/app/assets/images/NavLinksImages/home.svg";
-import explore from "@/app/assets/images/NavLinksImages/explore.svg";
 import chats from "@/app/assets/images/NavLinksImages/chats.svg";
 import profile from "@/app/assets/images/NavLinksImages/profile.svg";
 import create from "@/app/assets/images/NavLinksImages/create.svg";
+import search from "@/app/assets/images/NavLinksImages/search.svg";
 
 export const NavLinks = [
   {
@@ -11,12 +11,12 @@ export const NavLinks = [
     title: "Home",
     url: "/",
   },
-  // {
-  //   linkNo: 2,
-  //   iconImg: explore,
-  //   title: "Explore",
-  //   url: "/explore",
-  // },
+  {
+    linkNo: 2,
+    iconImg: search,
+    title: "Search",
+    url: "/search",
+  },
   {
     linkNo: 3,
     iconImg: chats,
