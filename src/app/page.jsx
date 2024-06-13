@@ -2,7 +2,6 @@
 import { useEffect } from "react";
 import React from "react";
 // import { socket } from "../socket";
-import NavMenu from "@/components/NavMenu";
 import { useUser } from "./context/UserContextProvider";
 import { useRouter } from "next/navigation";
 
@@ -13,7 +12,7 @@ export default function Home() {
 
   useEffect(()=>{
     if (user == null) {
-      router.push("/pages/login")
+      router.push("/login")
     }
     // if (socket.connected) {
     //   console.log('connected to socket' + socket.id)
@@ -22,6 +21,8 @@ export default function Home() {
   }, [user])
 
   return (
-    <NavMenu/>
+    <div>
+
+    </div>
   );
 }

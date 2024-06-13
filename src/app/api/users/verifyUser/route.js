@@ -9,7 +9,7 @@ connectDB();
 export const GET = async (request) => {
     try {
       const token = cookies().get("token")
-      console.log(token)
+      // console.log(token)
       // console.log(cookie.value)
       const data = jwt.verify(token.value, process.env.JWT_SECRET);
       // console.log(data)

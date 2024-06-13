@@ -44,7 +44,7 @@ export const sendEmail = async (email, emailType) => {
             or
             Copy and paste the link in browser
             <br>
-            ${process.env.DOMAIN}/pages/${emailType === "VERIFY" ? 'verifyEmail' : 'resetPassword'}/${token}
+            ${process.env.DOMAIN}/${emailType === "VERIFY" ? 'verifyEmail' : 'resetPassword'}/${token}
             </p>`,
     };
 

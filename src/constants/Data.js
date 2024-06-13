@@ -11,12 +11,12 @@ export const NavLinks = [
     title: "Home",
     url: "/",
   },
-  {
-    linkNo: 2,
-    iconImg: explore,
-    title: "Explore",
-    url: "/explore",
-  },
+  // {
+  //   linkNo: 2,
+  //   iconImg: explore,
+  //   title: "Explore",
+  //   url: "/explore",
+  // },
   {
     linkNo: 3,
     iconImg: chats,
@@ -25,7 +25,6 @@ export const NavLinks = [
   },
   {
     linkNo: 4,
-
     iconImg: create,
     title: "Post",
     url: "/create",

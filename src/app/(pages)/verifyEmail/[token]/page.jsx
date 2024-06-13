@@ -38,7 +38,7 @@ const ResetPassword = () => {
       <div className="flex items-center justify-center min-h-screen bg-gray-100">
         <div className="max-w-[25rem] w-full px-6 py-8 bg-white rounded-md mx-2">
           <h2 className="text-3xl font-semibold text-center text-indigo-600">
-            Sangama
+            Sangam
           </h2>
           <h2 className="italic text-sm font-semibold text-center text-green-600">
             A place where hearts connect

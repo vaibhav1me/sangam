@@ -32,7 +32,7 @@ const ResetPassword = () => {
       <div className="flex items-center justify-center min-h-screen bg-gray-100">
         <div className="max-w-[25rem] w-full px-6 py-8 bg-white rounded-md mx-2">
           <h2 className="text-3xl font-semibold text-center text-indigo-600">
-            Sangama
+            Sangam
           </h2>
           <h2 className="italic text-sm font-semibold text-center text-green-600">
             A place where hearts connect
@@ -43,7 +43,7 @@ const ResetPassword = () => {
           {message == "This link has expired." ? (
             <div className="max-w-[25rem] w-full px-6 py-8 bg-white rounded-md text-sm mx-2 text-indigo-600">
               {message}{" "}
-              <Link className='font-bold underline underline-offset-2' href="/pages/forgotPassword">
+              <Link className='font-bold underline underline-offset-2' href="/forgotPassword">
                 Try resetting it again here.
               </Link>
             </div>
@@ -102,7 +102,7 @@ const ResetPassword = () => {
               {/* <p className="mt-6 text-center text-sm text-gray-500">
             Remember your password?{" "}
             <Link
-              href="/pages/login"
+              href="/login"
               className="font-medium text-indigo-600 hover:text-indigo-500"
             >
               Sign In

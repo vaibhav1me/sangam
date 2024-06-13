@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { UserProvider } from "./context/UserContextProvider";
+import NavMenu from "@/components/NavMenu";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,6 +17,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <UserProvider>
+          <NavMenu/>
           {children}
         </UserProvider>
         </body>

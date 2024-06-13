@@ -33,7 +33,7 @@ const LoginPage = () => {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="max-w-[25rem] w-full px-6 py-8 bg-white rounded-md mx-2">
-        <h2 className="text-3xl font-semibold text-center text-indigo-600">Sangama</h2>
+        <h2 className="text-3xl font-semibold text-center text-indigo-600">Sangam</h2>
         <h2 className="italic text-sm font-semibold text-center text-green-600">A place where hearts connect</h2>
         <h2 className="mt-4 text-md font-semibold text-center text-indigo-600">Login</h2>
         <div className="mt-4">
@@ -89,7 +89,7 @@ const LoginPage = () => {
                         </div> */}
             <div className="text-sm">
               <Link
-                href="/pages/forgotPassword"
+                href="/forgotPassword"
                 className="font-medium text-indigo-600 hover:text-indigo-500"
               >
                 Forgot password?
@@ -109,7 +109,7 @@ const LoginPage = () => {
         <p className="mt-6 text-center text-sm text-gray-500">
           Don&apos;t have an account?{" "}
           <Link
-            href="/pages/signup"
+            href="/signup"
             className="font-medium text-indigo-600 hover:text-indigo-500"
           >
             Sign up
