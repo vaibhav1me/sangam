@@ -1,40 +1,25 @@
 "use client";
 import { useUser } from '@/app/context/UserContextProvider';
-import { useParams } from 'next/navigation'
+import { useParams, useRouter } from 'next/navigation'
 import React, { useEffect } from 'react'
 import avatar from "@/app/assets/images/avatar.jpg"
 import Image from 'next/image';
 
 const Profile = () => {
-  const [editable, setEditable] = React.useState(false);
+  // const [editable, setEditable] = React.useState(false);
   const { user } = useUser();
   const params = useParams();
   const userName = params.userName;
+  const router = useRouter();
 
-  useEffect(() => {
-    console.log(userName);
-  }, [userName]);
+  // useEffect(() => {
+  //   console.log(userName);
+  // }, [userName]);
 
-  useEffect(() => {
-    if (user?.email && user.userName == userName) {
-    }
-  }, [user]);
-
-  /*  Function to convert into base64 value
-    From input tag, accepted ={.jpg, .jpeg, .png, .gif} etcc, the file value that will be passed is const file = e.target.files[0]
-    const convertToBase64 = (file) => {
-      return new Promise((resolve, reject) => {
-        const fileReader = new FileReader();
-        fileReader.readAsDataURL(file);
-        fileReader.onload = () => {
-          resolve(fileReader.result);
-        };
-        fileReader.onerror = (error) => {
-          reject(error);
-        };
-      });
-    };
-    */
+  // useEffect(() => {
+  //   if (user?.email && user.userName == userName) {
+  //   }
+  // }, [user]);
 
   return (
     // {/* Posts, Liked Posts, Saved Posts */}
@@ -46,9 +31,16 @@ const Profile = () => {
         <div className='flex flex-col justify-center'>
             <div className='flex justify-between items-center my-2'>
                 <h1 className='mx-[30px] font-extrabold font-mono'>vaibhavbansal2025</h1>
-                <button className='bg-primary-500 px-2 py-1 rounded-md font-bold mx-[30px]'>
-                    Follow/EditProfile
-                </button>
+                {
+                 user?.userName == userName ? (<button onClick={() => {
+                  router.push('/editProfile')
+                 }} className='bg-primary-500 px-2 py-1 rounded-md font-bold mx-[30px]'>
+                    EditProfile
+                </button>) : (<button className='bg-primary-500 px-2 py-1 rounded-md font-bold mx-[30px]'>
+                    Follow
+                </button>)
+                }
+
             </div>
             <div className='flex justify-between items-center my-2 px-2'>
                 <span>0 posts</span>
