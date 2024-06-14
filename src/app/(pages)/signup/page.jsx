@@ -77,7 +77,7 @@ const SignUpPage = () => {
               htmlFor="userName"
               className="block text-sm font-medium text-gray-700"
             >
-              UserName
+              UserName (cannnot be changed later)
             </label>
             <input
               type="text"

@@ -26,7 +26,7 @@ const Profile = () => {
     <div>
       <div id='profile' className='mt-10 flex justify-around min-w-[500px] max-w-[55rem] w-[100%] m-auto px-4 mb-10'>
         <div className='mr-5 min-w-[8rem]'>
-        <Image src={avatar} alt='profile' height={16} width={16} className='h-[8rem] w-[8rem] rounded-full'/>
+        <Image src={user?.profilePhoto ? user.profilePhoto : avatar} alt='profile' height={16} width={16} className='h-[8rem] w-[8rem] rounded-full'/>
         </div>
         <div className='flex flex-col justify-center'>
             <div className='flex justify-between items-center my-2'>
