@@ -17,6 +17,7 @@ const EditProfile = () => {
   const saveProfile = async () => {
     setMessage("Saving...")
     const response = await axios.patch("/api/users/editProfile", details)
+    console.log(response.data)
     if (response.data.error?.message) {
       setMessage("Image size should be less than 2MB")
       return;
