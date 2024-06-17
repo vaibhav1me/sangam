@@ -4,24 +4,36 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import avatar from "@/app/assets/images/avatar.jpg";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 
 const EditProfile = () => {
   const [details, setDetails] = useState("");
-  const [message, setMessage] = useState("")
+  const [message, setMessage] = useState("The size of image should not be more than 1.5MB.")
   const { user,setUser } = useUser();
+  const router = useRouter()
+
+  // useEffect(() => {
+  //   if (user == null || user?.length == 0) {
+  //     const verifyUser = async () => {
+  //       const response = await axios.get("/api/users/verifyUser")
+  //       if (response.data.success) {
+  //         setUser(response.data.user)
+  //       } else {
+  //         router.push("/login")
+  //       }
+  //     }
+  //     verifyUser()
+  //   }
+  // }, [user]);
 
   useEffect(() => {
-    setDetails(user);
-  }, [user]);
+    setDetails(user)
+  }, [user])
 
   const saveProfile = async () => {
     setMessage("Saving...")
     const response = await axios.patch("/api/users/editProfile", details)
     console.log(response.data)
-    if (response.data.error?.message) {
-      setMessage("Image size should be less than 2MB")
-      return;
-    }
     setMessage(response.data.message)
     setTimeout(() => {
       setMessage("")
@@ -51,7 +63,7 @@ const EditProfile = () => {
             alt="avatar"
             height={16}
             width={16}
-            className="h-[4rem] w-[4rem] rounded-full"
+            className="h-[4rem] w-[4rem] rounded-full border-[3px] border-primary-600"
           />
           <label
             className="bg-primary-600 p-2 font-semibold rounded-lg hover:cursor-pointer"

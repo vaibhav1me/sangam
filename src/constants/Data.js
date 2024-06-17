@@ -27,7 +27,7 @@ export const NavLinks = [
     linkNo: 4,
     iconImg: create,
     title: "Post",
-    url: "/create",
+    url: "/createPost",
   },
   {
     linkNo: 5,

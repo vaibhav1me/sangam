@@ -8,7 +8,7 @@ export const POST = async (request) => {
   try {
     const reqBody = await request.json();
     const { email } = reqBody;
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ email }, { email: 1 });
     if (!user) {
       return NextResponse.json({
         message: "This user does not exist. Please enter a correct email",

@@ -4,13 +4,29 @@ import { useParams, useRouter } from 'next/navigation'
 import React, { useEffect } from 'react'
 import avatar from "@/app/assets/images/avatar.jpg"
 import Image from 'next/image';
+import axios from 'axios';
 
 const Profile = () => {
   // const [editable, setEditable] = React.useState(false);
-  const { user } = useUser();
+  const { user, setUser } = useUser();
   const params = useParams();
   const userName = params.userName;
   const router = useRouter();
+
+  // useEffect(() => {
+  //   if (user == null || user?.length == 0) {
+  //     const verifyUser = async () => {
+  //       const response = await axios.get("/api/users/verifyUser");
+  //       if (response.data.success) {
+  //         setUser(response.data.user);
+  //       } else {
+  //         router.push("/login");
+  //       }
+  //     };
+  //     verifyUser();
+  //     console.log(user?.profilePhoto)
+  //   }
+  // }, [user]);
 
   // useEffect(() => {
   //   console.log(userName);

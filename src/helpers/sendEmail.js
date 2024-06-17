@@ -1,6 +1,7 @@
 import User from "@/models/User";
 import nodemailer from "nodemailer";
 import { randomUUID } from "crypto";
+import axios from "axios";
 
 export const sendEmail = async (email, emailType) => {
   try {
@@ -36,15 +37,17 @@ export const sendEmail = async (email, emailType) => {
       to: email,
       subject:
         emailType === "VERIFY" ? "Verify your email" : "Reset your password",
-      html: `<p><a href="${
-        process.env.DOMAIN
-      }/verifyemail?vID=${token}">Click here</a> to ${
+      html: `<p><a href="${process.env.DOMAIN}/${
+        emailType === "VERIFY" ? "verifyEmail" : "resetPassword"
+      }/${token}">Click here</a> to ${
         emailType === "VERIFY" ? "verify your email" : "reset your password"
       }.
             or
             Copy and paste the link in browser
             <br>
-            ${process.env.DOMAIN}/${emailType === "VERIFY" ? 'verifyEmail' : 'resetPassword'}/${token}
+            ${process.env.DOMAIN}/${
+        emailType === "VERIFY" ? "verifyEmail" : "resetPassword"
+      }/${token}
             </p>`,
     };
 

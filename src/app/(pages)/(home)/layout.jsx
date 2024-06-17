@@ -1,21 +1,37 @@
 "use client";
+import { useUser } from "@/app/context/UserContextProvider";
 import NavMenu from "@/components/NavMenu";
-import { useUser } from "../../context/UserContextProvider";
+import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 export default function HomeLayout({ children }) {
-    const { user } = useUser();
+    const { user, setUser } = useUser();
     const router = useRouter();
+
     useEffect(() => {
-      if (user == null) {
-        router.push("/login");
+      if (user == null || user?.length == 0) {
+      const verifyUser = async () => {
+        const response = await axios.get("/api/users/verifyUser")
+        if (response.data.success) {
+          setUser(response.data.user)
+        } else {
+          router.push("/login")
+        }
       }
+      verifyUser()
+    }
+    }, [user])
+
+    // useEffect(() => {
+      // if (user == null) {
+      //   router.push("/login");
+      // }
       // if (socket.connected) {
       //   console.log('connected to socket' + socket.id)
       //   }
       // socket.emit("checking", { data: "Hello" });
-    }, [user]);
+    // }, [user]);
     
   return (
     <div className="flex">

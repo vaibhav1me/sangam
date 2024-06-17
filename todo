@@ -1,7 +1,7 @@
 Remove ContextAPI from everywhere for socketIO function
 SetUp google auth, github auth
 add remember me option
-Add httpcodes in backend
+Add http status codes in backend
 handle uppercase and lowercase in email and userName
 redirect to verifyEmail on signing up
 make dark mode
@@ -11,7 +11,8 @@ When I refresh editProfile, it takes me to home page due to empty user initially
 Change name on vercel, github and local and everywhere in the source code
 Custom error page,redirect to home page
 Change the tagline
-
+Handle size Issue of profile Photo
+reduce the size of data that MongoDb is sending in every request
 
 
 

@@ -10,10 +10,18 @@ const SignUpPage = () => {
   const router = useRouter();
 
   useEffect(() => {
-    if (user?.email) {
+    if (user == null || user?.length == 0) {
+      const verifyUser = async () => {
+        const response = await axios.get("/api/users/verifyUser");
+        if (response.data.success) {
+          setUser(response.data.user);
+          router.push("/");
+        }
+      };
+      verifyUser();
+    } else {
       router.push("/");
     }
-    console.log(user);
   }, [user]);
 
   const [details, setDetails] = useState({ email: "", password: "", userName: "", confirmPassword: ""});

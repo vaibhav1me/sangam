@@ -14,7 +14,7 @@ export const GET = async (request) => {
       const data = jwt.verify(token.value, process.env.JWT_SECRET);
       // console.log(data)
       const email = data.email;
-      const user = await User.find({ email });
+      const user = await User.findOne({ email });
       return NextResponse.json({
         success: true,
         message: "User Verified Successfully",

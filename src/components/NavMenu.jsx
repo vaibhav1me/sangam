@@ -6,10 +6,25 @@ import logout from "@/app/assets/images/NavLinksImages/logout.svg";
 import Image from "next/image";
 import axios from "axios";
 import { useUser } from "@/app/context/UserContextProvider";
+import { useEffect } from "react";
 
 const NavMenu = () => {
   const router = useRouter();
-  const {setUser} = useUser();
+  const {user,setUser} = useUser();
+
+  // useEffect(() => {
+  //   if (user == null || user?.lenght == 0) {
+  //     const verifyUser = async () => {
+  //       const response = await axios.get("/api/users/verifyUser");
+  //       if (response.data.success) {
+  //         setUser(response.data.user);
+  //       } else {
+  //         router.push("/login");
+  //       }
+  //     };
+  //     verifyUser();
+  //   }
+  // }, [user]);
 
   const logOut = async () => {
     const response = await axios.get('/api/users/logout')

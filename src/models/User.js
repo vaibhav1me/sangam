@@ -27,12 +27,13 @@ const UserSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  followers: [String],
+  following: [String],
   forgotPasswordToken: String,
   forgotPasswordTokenExpiry: Date,
   verifyToken: String,
   verifyTokenExpiry: Date,
 });
-
 
 const User = mongoose.models.User || mongoose.model("User", UserSchema);
 export default User;
