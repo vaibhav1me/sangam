@@ -2,7 +2,8 @@ import { connectDB } from "@/dbConfig/dbConnect"
 import Post from "@/models/Post";
 import { NextResponse } from "next/server";
 
-connectDB()
+connectDB();
+
 export const POST = async (request) => {
     try {
         const reqBody = await request.json();
