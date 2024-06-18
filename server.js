@@ -9,6 +9,8 @@ const port = 3000;
 const app = next({ dev, hostname, port });
 const handler = app.getRequestHandler();
 
+let socketFunction;
+
 app.prepare().then(() => {
   const httpServer = createServer(handler);
 
@@ -23,19 +25,18 @@ app.prepare().then(() => {
       console.log(`> Ready on http://${hostname}:${port}`);
     });
 
-     io.on("connection", (socket) => {
-       // ...
-       console.log("A user connected to socket " + socket.id);
-       socket.on("disconnect", () => {
-         console.log("User disconnected from socket " + socket.id);
-       });
-       socket.on("checking", (data) => {
-         console.log("Printing data" + data);
-       });
-      //  socket.broadcast.emit("checking", {data: "Hello"})
-       // console.log(socket.id)
-    //    socket.on("connect", () => {
-    //      console.log("Connect to socket", socket.id);
-    //    });
-     });
+  io.on("connection", (socket) => {
+    console.log("A user connected to socket " + socket.id);
+    socketFunction(socket);
+  });
 });
+
+socketFunction = (socket) => {
+  socket.on("disconnect", () => {
+    console.log("User disconnected from socket " + socket.id);
+  });
+  socket.on("checking", (data) => {
+    console.log(data.msg);
+  });
+  // socket.broadcast.emit("checking", { data: "Hello" });
+};

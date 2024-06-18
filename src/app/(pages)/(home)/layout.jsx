@@ -4,10 +4,19 @@ import NavMenu from "@/components/NavMenu";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import { socket } from "@/socket";
 
 export default function HomeLayout({ children }) {
     const { user, setUser } = useUser();
     const router = useRouter();
+
+    useEffect(() => {
+      if (socket.connected) {
+        console.log("connected to socket" + socket.id);
+      }
+      // socket.emit("checking", { msg: "hello" });
+    }, []);
+    
 
     useEffect(() => {
       if (user == null || user?.length == 0) {
@@ -23,16 +32,6 @@ export default function HomeLayout({ children }) {
     }
     }, [user])
 
-    // useEffect(() => {
-      // if (user == null) {
-      //   router.push("/login");
-      // }
-      // if (socket.connected) {
-      //   console.log('connected to socket' + socket.id)
-      //   }
-      // socket.emit("checking", { data: "Hello" });
-    // }, [user]);
-    
   return (
     <div className="flex">
       <NavMenu />
