@@ -10,8 +10,10 @@ const Chats = () => {
 
     useEffect(() => {
         if (user?.userName) {
-            socket.emit("joinRoom", user.userName)
-            console.log("Emitted joinedRoom from client")
+            socket.emit("joinRoom", {room: user?.userName})
+            socket.on("joinedRoom", (data) => {
+              console.log("Rooms", data);
+            });
         }
 
         const fetchChats = async () => {
@@ -21,19 +23,16 @@ const Chats = () => {
             if (response.data.success) {
                 
             }
-        } 
+        }
         if (user?.userName) {
             fetchChats()
         }
-
-        socket.on("joinedRoom", (data) => {
-          console.log("Hek", data);
-        });
-
     }, [user])
 
   return (
-    <div>Chats</div>
+    <div>
+      
+    </div>
   )
 }
 
