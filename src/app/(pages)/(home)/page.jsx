@@ -88,7 +88,7 @@ export default function Home() {
   }
 
   const createComment = async (index,postId) => {
-    if (message != "") {
+    if (comment != "") {
     let newPosts = [...posts];
     let updatedComments = newPosts[index].comments;
     updatedComments.push({createdBy: user?.userName, message: comment, createdAt: new Date()})
