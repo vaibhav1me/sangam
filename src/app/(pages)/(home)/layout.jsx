@@ -33,7 +33,7 @@ export default function HomeLayout({ children }) {
     }, [user])
 
   return (
-    <div className="flex">
+    <div className="flex min-w-[630px]">
       <NavMenu />
       <div className="w-[100%] h-screen overflow-y-scroll">{children}</div>
     </div>

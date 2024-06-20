@@ -8,9 +8,11 @@ import { useRouter } from "next/navigation";
 
 const EditProfile = () => {
   const [details, setDetails] = useState("");
-  const [message, setMessage] = useState("The size of image should not be more than 1.5MB.")
-  const { user,setUser } = useUser();
-  const router = useRouter()
+  const [message, setMessage] = useState(
+    "The size of image should not be more than 1.5MB."
+  );
+  const { user, setUser } = useUser();
+  const router = useRouter();
 
   // useEffect(() => {
   //   if (user == null || user?.length == 0) {
@@ -27,18 +29,18 @@ const EditProfile = () => {
   // }, [user]);
 
   useEffect(() => {
-    setDetails(user)
-  }, [user])
+    setDetails(user);
+  }, [user]);
 
   const saveProfile = async () => {
-    setMessage("Saving...")
-    const response = await axios.patch("/api/users/editProfile", details)
-    console.log(response.data)
-    setMessage(response.data.message)
+    setMessage("Saving...");
+    const response = await axios.patch("/api/users/editProfile", details);
+    console.log(response.data);
+    setMessage(response.data.message);
     setTimeout(() => {
-      setMessage("")
-    }, 2000)
-  }
+      setMessage("");
+    }, 2000);
+  };
 
   const convertToBase64 = (file) => {
     return new Promise((resolve, reject) => {
@@ -85,7 +87,10 @@ const EditProfile = () => {
           />
         </div>
         <div className="flex flex-col mb-[30px]">
-          <label htmlFor="email" className="mb-1 font-semibold text-primary-500">
+          <label
+            htmlFor="email"
+            className="mb-1 font-semibold text-primary-500"
+          >
             Email
           </label>
           <input
@@ -98,7 +103,10 @@ const EditProfile = () => {
           />
         </div>
         <div className="flex flex-col mb-[30px]">
-          <label htmlFor="userName" className="mb-1 font-semibold text-primary-500">
+          <label
+            htmlFor="userName"
+            className="mb-1 font-semibold text-primary-500"
+          >
             Username
           </label>
           <input
@@ -125,7 +133,12 @@ const EditProfile = () => {
             }}
           />
         </div>
-        <button className="bg-primary-600 p-2 font-semibold rounded-lg hover:cursor-pointer" onClick={() => {saveProfile()}}>
+        <button
+          className="bg-primary-600 p-2 font-semibold rounded-lg hover:cursor-pointer"
+          onClick={() => {
+            saveProfile();
+          }}
+        >
           Save
         </button>
         <p className="mt-2 text-center">{message}</p>

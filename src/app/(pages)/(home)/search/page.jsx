@@ -17,7 +17,7 @@ const Search = () => {
 
     const searchUsers = async () => {
       if(searchValue!="") {
-        setMessage("Searching for " + searchValue);
+        setMessage("Searching for " + searchValue + "....");
         const response = await axios.post("/api/users/search", {userName: searchValue});
         if (response.data.success) {
           if (response.data.users.length == 0) {
@@ -54,12 +54,12 @@ const Search = () => {
     // }, [user]);
 
   return (
-    <div className="pt-20 w-[70%] max-w-[700px] min-w-[] m-auto">
+    <div className="pt-20 w-[70%] max-w-[700px] m-auto">
       <div className='mb-5'>
         <input type="text" className='w-full bg-light-4 p-2 text-black rounded-md' value={searchValue} onChange={(e) => {setSearchValue(e.target.value)}} placeholder='Search for users'/>
       </div>
       <div className='text-center'>
-        {message == "" && users.length == 0 ? "Try searching for users" : ""}
+        {message == "" && users.length == 0 ? "Search for Users.." : ""}
         {message}
       </div>
       {
