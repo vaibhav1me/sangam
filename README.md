@@ -5,7 +5,7 @@ Sangam is a social media website which allows user to signup and post about the 
 - Clone the repo
 - Navigate to directory sangam
 - Run the following command
-- ``` shell
+``` shell
 npm install
 ```
 
@@ -21,6 +21,6 @@ JWT_SECRET="..."
 - SEND_EMAIL_PASSWORD should be obtained by going to security of the google account (whose email is being used to send verification email), turn on two step verification, under two step verification go to App Passwords and generate a new password, the string generated will be the value (put without spaces) of SEND_EMAIL_PASSWORD in .env file
 
 - Then run the following command in terminal
-- ```shell
+```shell
 npm run dev
 ```
