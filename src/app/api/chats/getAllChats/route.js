@@ -8,7 +8,7 @@ export const POST = async (request) => {
     try {
         const reqBody = await request.json();
         const {userName} = reqBody;
-        const chats = await Chat.find({$or: [{personOne: userName}, {personTwo: userName}]})
+        const chats = await Chat.find({$or: [{personOne: userName}, {personTwo: userName}]}, {personOne: 1, personTwo: 1})
         return NextResponse.json({success: true, message: "Chats fetched successfully", chats})
     } catch (error) {
         console.log(error);

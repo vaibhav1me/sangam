@@ -14,7 +14,17 @@ const PostSchema = new mongoose.Schema({
     createdAt: {
         type: Date,
         default: new Date()
-    }
+    },
+    comments: [
+        {
+            createdBy: String,
+            message: String,
+            createdAt: {
+                type: Date,
+                default: new Date()
+            }
+        }
+    ]
 })
 
 const Post = mongoose.models.Post || mongoose.model("Post",PostSchema)

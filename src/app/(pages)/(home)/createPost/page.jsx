@@ -52,9 +52,11 @@ const CreatePost = () => {
             name="title"
             id="title"
             placeholder="Title for your post"
-            className="hover:cursor-not-allowed bg-dark-4 p-2 rounded-lg focus:outline-primary-500"
+            className="bg-dark-4 p-2 rounded-lg focus:outline-primary-500"
             value={post?.title}
-            onChange={(e) => {setPost({...post, title: e.target.value})}}
+            onChange={(e) => {
+              setPost({ ...post, title: e.target.value });
+            }}
           />
         </div>
         <div className="flex flex-col mb-[30px]">
@@ -67,9 +69,11 @@ const CreatePost = () => {
           <textarea
             name="description"
             id="description"
-            className="hover:cursor-not-allowed bg-dark-4 p-2 rounded-lg focus:outline-primary-500"
+            className="bg-dark-4 p-2 rounded-lg focus:outline-primary-500"
             value={post?.description}
-            onChange={(e) => {setPost({...post, description: e.target.value})}}
+            onChange={(e) => {
+              setPost({ ...post, description: e.target.value });
+            }}
           ></textarea>
         </div>
         <div className="flex flex-col mb-[30px]">
@@ -81,22 +85,43 @@ const CreatePost = () => {
             name="tags"
             id="tags"
             placeholder="Tags for your post"
-            className="hover:cursor-not-allowed bg-dark-4 p-2 rounded-lg focus:outline-primary-500"
+            className="bg-dark-4 p-2 rounded-lg focus:outline-primary-500"
             value={post?.tags.join(",")}
-            onChange={(e) => {setPost({...post, tags: e.target.value.split(",")})}}
+            onChange={(e) => {
+              setPost({ ...post, tags: e.target.value.split(",") });
+            }}
           />
         </div>
         <div className="flex flex-col mb-[30px]">
-          <label htmlFor="file" className="mb-1 font-semibold text-primary-500">
-            Choose an image
+            <span className='mb-2'>
+          <label htmlFor="file" className="font-semibold text-white p-1 bg-primary-500 cursor-pointer">
+              Choose an image
           </label>
-          <Image alt='postImage' src={post?.file} height={16} width={16} className='h-[10rem] w-[10rem]'/>
-          <input type="file" name="file" id="file" className="hidden" onChange={async (e) => {
-            const result = await convertToBase64(e.target.files[0]);
-            setPost({...post, file: result})
-          }} />
+            </span>
+          <Image
+            alt="postImage"
+            src={post?.file}
+            height={16}
+            width={16}
+            className="h-[10rem] w-[10rem]"
+          />
+          <input
+            type="file"
+            name="file"
+            id="file"
+            className="hidden"
+            onChange={async (e) => {
+              const result = await convertToBase64(e.target.files[0]);
+              setPost({ ...post, file: result });
+            }}
+          />
         </div>
-        <button className='bg-primary-500 p-2 font-bold rounded-md mb-3' onClick={createPost}>Create Post</button>
+        <button
+          className="bg-primary-500 p-2 font-bold rounded-md mb-3"
+          onClick={createPost}
+        >
+          Create Post
+        </button>
         <p>{message}</p>
       </div>
     </div>

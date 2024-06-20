@@ -33,6 +33,11 @@ const SignUpPage = () => {
         setMessage("Passwords do not match.");
         return;
       }
+      const pattern = /^[a-zA-Z0-9]+$/
+      if (!pattern.test(details.userName)) {
+        setMessage("Username should not contain any spaces or special characters.")
+        return;
+      }
         setMessage("Creating account...");
         const response = await axios.post("/api/users/signup", details);
         if (response.data.success) {
