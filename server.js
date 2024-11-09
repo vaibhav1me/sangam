@@ -15,7 +15,7 @@
 
     const io = new Server(httpServer, {
       cors: {
-        origin: "https://sangama.vercel.app/",
+        origin: process.env.SITE_URL,
         methods: ["GET", "POST"],
       },
     });
