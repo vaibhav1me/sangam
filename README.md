@@ -1,5 +1,5 @@
 ## Short Description of The Project
-Sangam is a social media website which allows user to signup and post about the latest happenings in their life and in the world, be it posting links, images or texts. Users can also like and comment on the posts. An email verification and forgotPassword system has also been built. People can search for users and chat with them. Users can also customize their profiles.
+Sangam is a social media website which allows user to signup and post about the latest happenings in their life and in the world, be it posting links, images or texts. Users can also like and comment on the posts. An email verification and forgotPassword system has also been built. People can search for users and chat with them in real-time. Users can also customize their profiles. JWT has been used to keep user logged in.
 
 # Project SetUp
 - Clone the repo
